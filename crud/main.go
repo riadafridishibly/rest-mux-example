@@ -18,6 +18,7 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/products", api.GetAllProducts).Methods("GET")
 	r.HandleFunc("/products", api.CreateNewProduct).Methods("POST")
+	r.HandleFunc("/product/{id}", api.UpdateProduct).Methods("PUT")
 
 	srv := &http.Server{
 		Handler: r,
